@@ -1,0 +1,267 @@
+.container {
+    padding: 120px;
+    display: flex;
+    gap: 124px;
+
+    & .content {
+
+        & header {
+            & span {
+                text-transform: uppercase;
+                background: linear-gradient(to right, var(--gradient-content));
+                background-clip: text;
+                -webkit-background-clip: text;
+                font: var(--f-overline);
+                -webkit-text-fill-color: transparent;
+            }
+
+            & h2 {
+                font: var(--f-display-lg);
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .questions {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        margin-top: 38px;
+
+        & .question-item {
+            display: flex;
+            gap: 6px;
+        }
+
+        & .icon {
+            
+            & svg {
+                fill: transparent;
+                
+                & path {
+                    stroke: var(--content-brand);
+                }
+            }
+        }
+
+        & .question {
+
+            & span {
+                font: var(--f-paragraph-lg);
+                color: var(--content-brand);
+            }
+
+            & p {
+                font: var(--f-paragraph-md);
+                color: var(--content-secondary);
+            }
+        }
+    }
+
+    & .content-form {
+        margin: 34px 0 34px 108px;
+        display: flex;
+        flex-direction: column;
+
+        & .title-form {
+
+            & span {
+                font: var(--f-label-lg);
+                text-transform: uppercase;
+            }
+
+            & p {
+                font: --f-paragraph-lg;
+                color: var(--content-secondary);
+            }
+        }
+
+        & fieldset {
+            display: flex;
+            margin-top: 40px;
+
+            & .number-field {
+                width: 86px;
+                height: 88px;
+                padding-right: 12px;
+                text-align: center;
+
+                & .input-after {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 57px;
+                    border-radius: 0.5rem;
+
+                    &:hover {
+                        background: linear-gradient(to right, var(--gradient-border));
+
+                        & input {
+                            background-color: #24222E;
+                        }
+                    }
+
+                    & input:focus {
+                        background-color: #24222E;
+                        border: 1px solid;
+                    }
+                }
+
+                & input[type="text"] {
+                    background-color: var(--background-secondary);
+                    border: none;
+                    width: 95%;
+                    height: 55px;
+                    padding: 8px 4px;
+                    outline: none;
+                    text-align: center;
+                    color: var(--content-primary);
+                    font: var(--f-display-sm);
+                    border-radius: 0.5rem;
+                }
+
+                & label {
+                    font: var(--f-label-md);
+                    text-transform: uppercase;
+                    color: #C7C9CC;
+                }
+            }
+        }
+
+        & .option-toggle {
+            display: flex;
+            margin-top: 20px;
+            gap: 8px;
+           
+            & .input-toggle {
+                width: 30px;
+                height: 20px;
+                background-color: var(--content-tertiary);
+                border-radius: 1rem;
+                padding: 3px;
+                position: relative;
+                transition: background 0.5s ease-in-out;
+                
+                .toggle-accent {
+                    background-color: #ffffff;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    transition: transform 0.5s ease-in-out;
+                }
+
+                & input {
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    position: absolute;
+                    appearance: none;
+
+                }
+                &:has(:checked) {
+                    background: linear-gradient(to right, var(--gradient-background));
+
+                    & .toggle-accent {
+                        transform: translateX(10px);
+                    }
+                }
+            }
+        }
+
+        & .button-after {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 57px;
+            border-radius: 0.5rem;
+            &:hover {
+                background: linear-gradient(to right, var(--gradient-border));
+
+                & button {
+                    background-color: var(--background-secondary);
+                }
+
+                & button img {
+                    transform: translateX(10px);
+                }
+            }
+        }
+
+        & button {
+            
+            width: 99%;
+            height: 98%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--content-primary);
+            background-color: var(--background-tertiary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            font: var(--f-label-md);
+            text-transform: uppercase;
+            gap: 8px;
+            cursor: pointer;
+
+            & img {
+                transition: transform 0.6s;
+            }
+        }
+    }
+}
+
+#mobile-only {
+    display: none;
+}
+
+@media (max-width: 425px) {
+    body {
+        display: block;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        margin: 44px 0;
+    }
+
+    .container {
+        margin: 46px 24px;
+        padding: 0;
+        gap: 42px;
+        flex-direction: column;
+
+        & .content {
+
+            & header {
+
+                & h2 {
+                    font: var(--f-display-md);
+                    text-transform: uppercase;
+                }
+            }
+
+            & .questions {
+                display: none;
+            }
+        }
+
+        .questions {
+            margin-bottom: 40px;
+        }
+
+        & .content-form {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    #mobile-only {
+        display: flex;
+    }
+}
