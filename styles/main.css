@@ -61,7 +61,7 @@
 
     & .content-form {
         margin: 34px 0 34px 108px;
-        display: none;
+        display: flex;
         flex-direction: column;
 
         & .title-form {
@@ -218,7 +218,7 @@
 .content-result {
     width: 50%;
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -243,7 +243,7 @@
         & .numbers {
             margin-top: 40px;
             display: flex;
-            gap: 4px;
+            gap: 20px;
 
             & .number {
                 width: 84px;
@@ -256,6 +256,7 @@
             }
 
             & .number2 {
+                padding: 20px;
                 width: 84px;
                 height: 92px;
                 color: var(--content-brand);
@@ -271,9 +272,7 @@
                 font-weight: 700;
                 font-size: 48px;
                 color: var(--content-brand);
-                display: none;
-                animation: 0.5s linear appear;
-                animation-delay: 3s;
+                animation: 3s linear appear;
             }
         }
     }
@@ -285,6 +284,7 @@
             align-items: center;
             width: 100%;
             height: 57px;
+            animation: 4.5s topappear;
             border-radius: 0.5rem;
             &:hover {
                 background: linear-gradient(to right, var(--gradient-border));
@@ -330,7 +330,6 @@
         width: 0;
         height: 0;
         border-radius: 50%;
-        color: inherit;
     }
     20% {
         width: 84px;
@@ -338,41 +337,55 @@
         background-color: var(--content-brand);
         border-radius: 28px;
         transform: rotate(0);
-        color: inherit;
     }
     50% {
         background-color: var(--content-brand);
         border-radius: 28px;
-        color: var(--background-secondary);
+        margin-left: 50px;
         transform: rotate(360deg) scale(1.5);
     }
-    75% {
+    75%, 90% {
         background-color: var(--content-brand);
         border-radius: 28px;
+        margin-left: 50px;
         transform: rotate(360deg) scale(1.5);
-        color: var(--background-secondary);
-        span {
-            display: none;
-        }
+        opacity: 1;
     }
 
     100% {
         background-color: var(--content-brand);
         border-radius: 28px;
-        transform: rotate(360deg) scale(1.5);
-        color: var(--background-secondary);
-        span {
-            display: block;
-        }
+        margin-left: 40px;
+        transform: rotate(360deg) scale(1);
+        opacity: 0;
     }
 }
 
 @keyframes appear {
-    from {
+    0% {
         display: none;
     }
-    to {
+    25%, 50% {
+        display: none;
+    }
+    60% {
         display: block;
+        color: var(--background-secondary);
+    }
+
+    100% {
+        color: var(--background-secondary);
+    }
+}
+
+@keyframes topappear {
+    from {
+        opacity: 0;
+        transform: translateY(500px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
